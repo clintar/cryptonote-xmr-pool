@@ -9,13 +9,13 @@
     },
     "dependencies": {
         "bignum": "*",
-        "async": "*",
+        "async": "1",
         "redis": "*",
         "cli-color": "*",
         "dateformat": "*",
         "base58-native": "*",
-        "multi-hashing": "git://github.com/fancoder/node-multi-hashing.git",
-        "cryptonote-util": "git://github.com/fancoder/node-cryptonote-util.git"
+        "multi-hashing": "git://github.com/clintar/node-multi-hashing.git#Nan-2.0",
+        "cryptonote-util": "git://github.com/clintar/node-cryptonote-util.git#Nan-2.0"
     },
     "engines": {
         "node": ">=0.10"
