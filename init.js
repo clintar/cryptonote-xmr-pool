@@ -42,18 +42,24 @@ var logSystem = 'master';
 require('./lib/exceptionWriter.js')(logSystem);
 
 
-var singleModule = (function(){
+var selectedModules = (function(){
 
     var validModules = ['pool', 'api', 'unlocker', 'payments', 'chartsDataCollector'];
 
     for (var i = 0; i < process.argv.length; i++){
         if (process.argv[i].indexOf('-module=') === 0){
-            var moduleName = process.argv[i].split('=')[1];
-            if (validModules.indexOf(moduleName) > -1)
-                return moduleName;
-
-            log('error', logSystem, 'Invalid module "%s", valid modules: %s', [moduleName, validModules.join(', ')]);
-            process.exit();
+            var modulesStr = process.argv[i].split('=')[1];
+            var moduleNames = modulesStr.split(',');
+            for(var j = 0; j < moduleNames.length;j++)
+            {
+                var module = moduleNames[j];
+                if (!(validModules.indexOf(module) > -1))
+                {
+                    log('error', logSystem, 'Invalid module "%s", valid modules: %s', [module, validModules.join(', ')]);
+                    process.exit();
+                }
+                return moduleNames;
+            }
         }
     }
 })();
@@ -63,25 +69,30 @@ var singleModule = (function(){
 
     checkRedisVersion(function(){
 
-        if (singleModule){
-            log('info', logSystem, 'Running in single module mode: %s', [singleModule]);
-
-            switch(singleModule){
-                case 'pool':
-                    spawnPoolWorkers();
-                    break;
-                case 'unlocker':
-                    spawnBlockUnlocker();
-                    break;
-                case 'payments':
-                    spawnPaymentProcessor();
-                    break;
-                case 'api':
-                    spawnApi();
-                    break;
-                case 'chartsDataCollector':
-                    spawnChartsDataCollector();
-                    break;
+        if (selectedModules){
+            log('info', logSystem, 'Running in selected module mode: %s', [selectedModules]);
+            for (var i = 0; i < selectedModules.length; i++){
+                var selectedModule = selectedModules[i];
+                switch(selectedModule){
+                    case 'pool':
+                        spawnPoolWorkers();
+                        break;
+                    case 'unlocker':
+                        spawnBlockUnlocker();
+                        break;
+                    case 'payments':
+                        spawnPaymentProcessor();
+                        break;
+                    case 'api':
+                        spawnApi();
+                        break;
+                    case 'chartsDataCollector':
+                        spawnChartsDataCollector();
+                        break;
+                    case 'purchases':
+                        spawnPurchaseProcessor();
+                        break;
+                }
             }
         }
         else{
