@@ -100,6 +100,11 @@
         "port": 8117,
         "blocks": 30,
         "payments": 30,
+        "ssl": false,
+        "sslport": 8119,
+        "sslcert": "./certs/cert.pem",
+        "sslkey": "./certs/privkey.pem",
+        "sslca": "./certs/chain.pem",
         "password": "your_password"
     },
 
