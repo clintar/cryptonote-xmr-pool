@@ -1,4 +1,4 @@
-cryptonote-universal-pool
+cryptonote-xmr-pool
 ====================
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Bytecoin, DuckNote, Monero, QuazarCoin, Boolberry, Dashcoin, etc..
@@ -52,7 +52,9 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
   * Each miners' individual stats (hashrate, shares submitted, pending balance, total paid, etc)
   * Blocks found (pending, confirmed, and orphaned)
 * An easily extendable, responsive, light-weight front-end using API to display data
-
+* Support for configuration using tls (https) in pool code to allowing the same for web frontend
+* Multiple modules can be started on command line instead of one or none.
+* Onishin's keepalive function https://github.com/perl5577/cpuminer-multi/commit/0c8aedb
 #### Extra features
 
 * Admin panel
@@ -65,7 +67,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * Miner login(wallet address) validation
 * Five configurable CSS themes
 * Universal blocks and transactions explorer based on [chainradar.com](http://chainradar.com)
-* FantomCoin & MonetaVerde support
+* FantomCoin support is not currently working after fixes to get node modules to work after Mar 23, 2016 fork.
+* MonetaVerde support not tested since changes for monero fork
 * Set fixed difficulty on miner client by passing "address" param with ".[difficulty]" postfix
 * Prevent "transaction is too big" error with "payments.maxTransactionAmount" option
 
@@ -78,15 +81,8 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
-* http://xminingpool.com
-* http://extremepool.org
-* http://noclaymorefee.com
-* http://nicepool.org
-* https://yaymining.com
-* http://bbr.unipool.pro
-* http://multihash.de
-* http://monero.rs
-* http://backup-pool.com/monero
+* http://xmr.poolto.be run by PCFil
+* http://xmr.cncoin.farm run by clintar
 
 Usage
 ===
@@ -121,7 +117,7 @@ sudo apt-get install git redis-server libboost1.55-all-dev nodejs-dev nodejs-leg
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/fancoder/cryptonote-universal-pool.git pool
+git clone https://github.com/clintar/cryptonote-xmr-pool.git pool
 cd pool
 npm update
 ```
@@ -457,7 +453,12 @@ the Node.js modules, and any config files that may have been changed.
 
 ### Setting up Testnet
 
-No cryptonote based coins have a testnet mode (yet) but you can effectively create a testnet with the following steps:
+Monero does have a testnet. Call daemon and simplewallet with --tesnet to connect to it.
+Downloading the testnet blockchain may still take a while to start usint testnet, so you can use this excellent 
+tutorial http://moneroexamples.github.io/private-testnet/ to set up a private testnet. Should work with other 
+coins, too, but below are original testnet instructions by server43 for reference, too.
+
+For cryptonote based coins that don't have a testnet mode (yet), you can effectively create a testnet with the following steps:
 
 * Open `/src/p2p/net_node.inl` and remove lines with `ADD_HARDCODED_SEED_NODE` to prevent it from connecting to mainnet (Monero example: http://git.io/0a12_Q)
 * Build the coin from source
@@ -492,9 +493,8 @@ curl 127.0.0.1:18081/json_rpc -d '{"method":"getblockheaderbyheight","params":{"
 
 Donations
 ---------
-* BTC: `1667jMt7NTZDaC8WXAxtMYBR8DPWCVoU4d`
-* MRO: `48Y4SoUJM5L3YXBEfNQ8bFNsvTNsqcH5Rgq8RF7BwpgvTBj2xr7CmWVanaw7L4U9MnZ4AG7U6Pn1pBhfQhFyFZ1rL1efL8z`
-
+* BTC: `16gHU8K5h3djmwAb6xUCaGsLe2z21L19Y6`
+* MRO: `4AabFTaEt6KG18tux7yqS8Fv63JoyXsitjGSksrXCqZwBeJKKnphSx4KNsocn5kqWg6cMjeuNzssTHeefHvN8m1V6QqseCH`
 Credits
 ===
 
@@ -503,7 +503,10 @@ Credits
 * [wallet42](http://moneropool.com) - Funded development of payment denominating and min threshold feature
 * [Wolf0](https://bitcointalk.org/index.php?action=profile;u=80740) - Helped try to deobfuscate some of the daemon code for getting a bug fixed
 * [Tacotime](https://bitcointalk.org/index.php?action=profile;u=19270) - helping with figuring out certain problems and lead the bounty for this project's creation
-
+* [fancoder] (https://github.com/fancoder) Initial cryptonote-universal-pool creator 
+ * BTC: `1667jMt7NTZDaC8WXAxtMYBR8DPWCVoU4d`- 
+ * MRO: `48Y4SoUJM5L3YXBEfNQ8bFNsvTNsqcH5Rgq8RF7BwpgvTBj2xr7CmWVanaw7L4U9MnZ4AG7U6Pn1pBhfQhFyFZ1rL1efL8z`
+* [clintar] (https://github.com/clintar) Updates to support nodejs >0.10 and continuing updates
 License
 -------
 Released under the GNU General Public License v2
