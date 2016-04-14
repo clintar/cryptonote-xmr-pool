@@ -1,8 +1,8 @@
 {
-    "coin": "ducknote",
-    "symbol": "XDN",
+    "coin": "monero",
+    "symbol": "XMR",
     "coinUnits": 100000000,
-    "coinDifficultyTarget": 240,
+    "coinDifficultyTarget": 120,
 
     "logging": {
         "files": {
@@ -19,13 +19,13 @@
     "poolServer": {
         "enabled": true,
         "clusterForks": "auto",
-        "poolAddress": "ddehi53dwGSBEXdhTYtga2R3fS4y9hRz4YHAsLABJpH75yUd5EDQmuL3yDBj1mG6MMeDfydY9vp4zFVVNQ99FTYq2PpsFJP2y",
+        "poolAddress": "4A2Gv6uMc3vZsGMTEMnBsgaJMtQeEBCzaigneqJN8bzkTit2Di5MVm2fjE9rfWMz4yMVxSBL3Q9QzbafXUBXzUcANNnjjEn",
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
         "ports": [
             {
                 "port": 3333,
-                "difficulty": 100,
+                "difficulty": 1000,
                 "desc": "Low end hardware"
             },
             {
@@ -77,16 +77,16 @@
         "interval": 600,
         "maxAddresses": 50,
         "mixin": 3,
-        "transferFee": 50000000,
-        "minPayment": 1000000000,
+        "transferFee": 5000000000,
+        "minPayment": 1000000000000,
         "maxTransactionAmount": 0,
-        "denomination": 1000000000
+        "denomination": 100000000000
     },
 
     "blockUnlocker": {
         "enabled": true,
         "interval": 30,
-        "depth": 10,
+        "depth": 60,
         "poolFee": 2,
         "devDonation": 0.1,
         "coreDevDonation": 0.1,
@@ -96,7 +96,7 @@
     "api": {
         "enabled": true,
         "hashrateWindow": 600,
-        "updateInterval": 5,
+        "updateInterval": 30,
         "port": 8117,
         "blocks": 30,
         "payments": 30,
@@ -110,12 +110,12 @@
 
     "daemon": {
         "host": "127.0.0.1",
-        "port": 42081
+        "port": 18081
     },
 
     "wallet": {
         "host": "127.0.0.1",
-        "port": 8082
+        "port": 18082
     },
 
     "redis": {
