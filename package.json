@@ -15,7 +15,7 @@
         "dateformat": "*",
         "base58-native": "*",
         "multi-hashing": "git://github.com/clintar/node-multi-hashing.git#Nan-2.0",
-        "cryptonote-util": "git://github.com/clintar/node-cryptonote-util.git#xmr-Nan-2.0"
+        "cryptonote-util": "git://github.com/M5M400/node-cryptonote-util.git#xmr-Nan-2.0"
     },
     "engines": {
         "node": ">=0.10"
