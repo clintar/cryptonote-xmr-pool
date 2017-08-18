@@ -71,6 +71,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * MonetaVerde support not tested since changes for monero fork
 * Set fixed difficulty on miner client by passing "address" param with ".[difficulty]" postfix
 * Prevent "transaction is too big" error with "payments.maxTransactionAmount" option
+* XMR: <address>.<payment_id> and integrated addresses are acceptable (now additional fee).
 
 
 ### Community / Support
@@ -215,7 +216,7 @@ Explanation for each field:
        minerd -u 4AsBy39rpUMTmgTUARGq2bFQWhDhdQNekK5v4uaLU699NPAnx9CubEJ82AkvD5ScoAZNYRwBxybayainhyThHAZWCdKmPYn.5000 */
     "fixedDiff": {
         "enabled": true,
-        "separator": ".", // character separator between <address> and <difficulty>
+        "separator": "+", // character separator between <address> and <difficulty>
     },
 
     /* Feature to trust share difficulties from miners which can
