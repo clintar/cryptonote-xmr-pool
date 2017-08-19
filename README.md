@@ -72,6 +72,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * Set fixed difficulty on miner client by passing "address" param with ".[difficulty]" postfix
 * Prevent "transaction is too big" error with "payments.maxTransactionAmount" option
 * XMR: "address"."payment_id" and integrated addresses are acceptable (withdrawal fee = config.payments.transferFee).
+* Control transactions priority with config.payments.priority (default: 0).
 
 
 ### Community / Support
