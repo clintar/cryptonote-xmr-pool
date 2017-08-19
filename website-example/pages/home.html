@@ -64,6 +64,11 @@
     #addressError{
         color: red;
     }
+    #fee{
+        color: red;
+        display: none;
+        font-size: 0.7em;
+    }
 
 
     #payments_rows > tr > td{
@@ -108,6 +113,11 @@
         <h3 id="marketHeader">Market</h3>
         <div class="marketFooter">Updated: <span id="marketLastUpdated"></span></div>
         <div class="marketFooter">Powered by <a href="https://www.cryptonator.com/">Cryptonator</a></div>
+    </div>
+</div>
+<div class="row">
+    <div class="stats">
+        <div><i class="fa fa-exclamation-circle"></i>Exchanges withdrawal additional fee: <span id="transferFee"></span><div>
     </div>
 </div>
 
@@ -247,7 +257,10 @@
         <div class="col-sm-4 stats">
             <div id="addressError"></div>
             <!-- <div class="yourStats"><i class="fa fa-key"></i> Address: <span id="yourAddressDisplay"></span></div> -->
-            <div class="yourStats"><i class="fa fa-bank"></i> Pending Balance: <span id="yourPendingBalance"></span></div>
+            <div class="yourStats">
+                <i class="fa fa-bank"></i> Pending Balance: <span id="yourPendingBalance"></span>
+                <div id="fee"></div>
+            </div>
             <div class="yourStats"><i class="fa fa-money"></i> Total Paid: <span id="yourPaid"></span></div>
             <div class="yourStats"><i class="fa fa-clock-o"></i> Last Share Submitted: <span id="yourLastShare"></span></div>
             <div class="yourStats"><i class="fa fa-tachometer"></i> Hash Rate: <span id="yourHashrateHolder"></span></div>
@@ -348,9 +361,12 @@
 
             updateText('poolFee', floatToString(totalFee) + '%');
 
-
+            
             updateText('blockSolvedTime', getReadableTime(lastStats.network.difficulty / lastStats.pool.hashrate));
             updateText('calcHashSymbol', lastStats.config.symbol);
+
+            var transferFee = lastStats.config.transferFee / lastStats.config.coinUnits;
+            updateText('transferFee', floatToString(transferFee) + ' ' + lastStats.config.symbol);
 
             calcEstimateProfit();
         }
@@ -478,6 +494,13 @@
         if (!address){
             $('#yourStatsInput').focus();
             return;
+        }
+        if (address.indexOf(".") != -1 || address.length == 106) {
+            var transferFee = lastStats.config.transferFee / lastStats.config.coinUnits;
+            $('#fee').text("Address with payment id. Withdrawal fee: " + floatToString(transferFee) + " " + lastStats.config.symbol)
+            $('#fee').show()
+        } else {
+            $('#fee').hide()
         }
 
         $('#addressError').hide();

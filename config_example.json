@@ -1,7 +1,7 @@
 {
     "coin": "monero",
     "symbol": "XMR",
-    "coinUnits": 100000000,
+    "coinUnits": 1000000000000,
     "coinDifficultyTarget": 120,
 
     "logging": {
@@ -77,7 +77,7 @@
         "interval": 600,
         "maxAddresses": 50,
         "mixin": 3,
-        "transferFee": 5000000000,
+        "transferFee": 14000000000,
         "minPayment": 1000000000000,
         "maxTransactionAmount": 0,
         "denomination": 100000000000
