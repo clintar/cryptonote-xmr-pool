@@ -83,6 +83,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 * http://xmr.poolto.be run by PCFil
 * http://xmr.cncoin.farm run by clintar
+* https://xmr.ayuscrypto.com run by j0hnw0rk3r
 
 Usage
 ===
