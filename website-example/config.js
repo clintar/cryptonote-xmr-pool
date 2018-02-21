@@ -1,4 +1,4 @@
-var api = "http://poolhost.com:1117";
+var api = "http://poolhost.com:8117";
 
 var poolHost = "poolhost.com";
 
