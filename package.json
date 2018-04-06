@@ -14,7 +14,7 @@
         "cli-color": "*",
         "dateformat": "*",
         "base58-native": "*",
-        "multi-hashing": "git://github.com/clintar/node-multi-hashing.git#Nan-2.0",
+        "cryptonight-hashing": "git+https://github.com/MoneroOcean/node-cryptonight-hashing.git",
         "cryptonote-util": "git://github.com/kirichenko/node-cryptonote-util.git#xmr-Nan-2.0"
     },
     "engines": {
