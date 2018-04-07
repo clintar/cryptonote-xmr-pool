@@ -134,10 +134,10 @@ npm update
 Explanation for each field:
 ```javascript
 /* Used for storage in redis so multiple coins can share the same redis instance. */
-"coin": "ducknote",
+"coin": "monero",
 
 /* Used for front-end display */
-"symbol": "XDN",
+"symbol": "XMR",
 
 /* Minimum units in a single coin, see COIN constant in DAEMON_CODE/src/cryptonote_config.h */
 "coinUnits": 100000000,
