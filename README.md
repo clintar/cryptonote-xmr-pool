@@ -4,6 +4,8 @@ cryptonote-xmr-pool
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Bytecoin, DuckNote, Monero, QuazarCoin, Boolberry, Dashcoin, etc..
 Comes with lightweight example front-end script which uses the pool's AJAX API.
 
+UPDATED FOR MONERO HARDFORK (Monero7) Credit goes to Clintar as he did all the work I just changed a link. 
+
 
 
 #### Table of Contents
@@ -83,6 +85,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 #### Pools Using This Software
 
+* https://arhash.xyz run by HyperionX
 * http://xmr.poolto.be run by PCFil
 * http://xmr.cncoin.farm run by clintar
 * https://xmr.ayuscrypto.com run by j0hnw0rk3r
@@ -120,7 +123,7 @@ sudo apt-get install git redis-server libboost1.55-all-dev nodejs-dev nodejs-leg
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/clintar/cryptonote-xmr-pool.git pool
+git clone https://github.com/hypeboard/cryptonote-xmr-pool.git pool
 cd pool
 npm update
 ```
