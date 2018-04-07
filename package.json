@@ -14,9 +14,8 @@
         "cli-color": "*",
         "dateformat": "*",
         "base58-native": "*",
-        "cryptonote-util": "git://github.com/Snipa22/node-cryptonote-util.git#xmr-Nan-2.0",
-        "cryptonight-hashing": "git://github.com/MoneroOcean/node-cryptonight-hashing.git",
-        "multi-hashing": "git://github.com/Snipa22/node-multi-hashing-aesni.git#CN-Variant"
+        "cryptonight-hashing": "git://github.com/Venthos/node-cryptonight-hashing.git",
+        "cryptonote-util": "git://github.com/kirichenko/node-cryptonote-util.git#xmr-Nan-2.0"
     },
     "engines": {
         "node": ">=0.10"
